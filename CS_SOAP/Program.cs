@@ -10,10 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IBreukOpteller, BreukService>();
+builder.Services.AddSingleton<IAuthenticate, AuthenticateService>();
 
 var app = builder.Build();
-app.UseSoapEndpoint<IBreukOpteller>("/authenticate.asmx",
+app.UseSoapEndpoint<IAuthenticate>("/authenticate.asmx",
                                     new SoapEncoderOptions());
 
 // Configure the HTTP request pipeline.
