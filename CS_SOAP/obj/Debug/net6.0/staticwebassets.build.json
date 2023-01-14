@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vCHKd8XByiwe3jtBdHyoNGLW+PTkAuNaHX8aPCdVLZ8=",
+  "Source": "authenticate",
+  "BasePath": "_content/authenticate",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
