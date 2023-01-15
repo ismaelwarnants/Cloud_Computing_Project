@@ -1,0 +1,6 @@
+flask
+flask-graphql
+graphene
+flask-cors
+requests
+xmltodict

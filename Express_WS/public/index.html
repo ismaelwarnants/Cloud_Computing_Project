@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .popup {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #f1f1f1;
+          padding: 20px;
+          border: 1px solid black;
+          display: block;
+      }
+      .container {
+          display: center;
+          flex-direction: column;
+          text-align:center;
+      }
+      .h1 {
+          text-align:center;
+      }
+    
+    </style>
+  </head>
+  <body>
+    <div id="popup" class="popup">
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="button" value="Login" onclick="checkCredentials()">
+        <input type="button" value="Create user" onclick="createUser()"> 
+      </form> 
+    </div>
+
+    <div id="winner-popup" class="popup" style="display: none;">
+      <form>
+        <h1 id="winner-text" style="text-align: center; display: none;"></h1>
+        <h2 id="winner-text1" style="text-align: center; display: none;"></h2>
+        <label id="winner-text2" style="text-align: center; display: none;"></label>
+        <label id="winner-text3" style="text-align: center; display: none;"></label>
+        <input id="restart-btn" type="button" style="display: none;" value="Restart" onclick="restart()">
+      </form> 
+    </div>
+
+    <div class="container" id="container">
+      <div class="element1"><h1 id="textPlayer1"></h1></div>
+      <div class="element2"><canvas id="myCanvas"></canvas></div>
+      <div class="element3"><h1 id="textPlayer2"></h1></div>
+    </div>
+    
+
+
+    <!-- Script -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"
+      integrity="sha512-9mpsATI0KClwt+xVZfbcf2lJ8IFBAwsubJ6mI3rtULwyM3fBmQFzj0It4tGqxLOGQwGfJdk/G+fANnxfq9/cew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./script.js"></script>
+
+  </body>
+</html>

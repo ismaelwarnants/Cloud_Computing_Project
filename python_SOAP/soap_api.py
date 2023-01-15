@@ -1,5 +1,4 @@
 import requests
-from lxml import etree
 import xmltodict
 
 # SOAP request URL
@@ -34,7 +33,7 @@ def login(userName, password):
         return root['s:Envelope']['s:Body']['LoginResponse']['LoginResult']
     else:
         print("Invalid username or password")
-        return ""
+        return "0"
         
 def create_user(userName, password):
     # structured XML
@@ -65,5 +64,5 @@ def create_user(userName, password):
         return root['s:Envelope']['s:Body']['CreateUserResponse']['CreateUserResult']
     else:
         print("User already exists")
-        return ""
+        return "0"
 
