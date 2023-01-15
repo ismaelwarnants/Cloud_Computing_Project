@@ -6,6 +6,7 @@ let isPlayer2 = false;
 let paddleIndex = 0;
 
 let namePlayer = "";
+let UUID = "";
 
 let width = 500;
 let height = 700;
@@ -136,7 +137,7 @@ function calculateWinner(){
   else if(score[0] < score[1]){
     winner = 1;
   }
-  else{
+  else if (score[0] == score[1]){
     winner = 0;
   }
 }
@@ -146,7 +147,7 @@ function timerUpdate(){
     calculateWinner();
     console.log("Game finished, player ",winner," won");
     socket.emit('finished',{
-      winner,
+      winner, score
     });
     finished = true;
   }
@@ -232,7 +233,7 @@ function animate() {
 function loadGame() {
   createCanvas();
   renderIntro();
-  socket.emit('ready');
+  socket.emit('ready', UUID);
 }
 
 function startGame() {
@@ -296,6 +297,7 @@ function checkCredentials() {
               alert("Invalid credentials. Please try again.");
             } else {
               console.log("login successful: ",data.data.login);
+              UUID = data.data.login;
               document.getElementById("popup").style.display = "none";
               loadGame();
           }
@@ -342,7 +344,7 @@ function showWinner(){
   document.getElementById("winner-text1").style.display = "block";
   document.getElementById("winner-text2").style.display = "block";
   document.getElementById("winner-text3").style.display = "block";
-  document.getElementById("restart-btn").style.display = "block, center";
+  document.getElementById("restart-btn").style.display = "block";
   document.getElementById("container").style.display = "none";
   let message = "";
   let message1 = "";
@@ -354,13 +356,13 @@ function showWinner(){
     message2 = " (You)";
   }
 
-  if(winner = 0){
+  if(winner == 0){
     message = "It is a tie";
   }
-  else if(winner = 1){
+  else if(winner == 1){
     message = "Player 1 won"+message1;
   }
-  else if(winner = 2){
+  else if(winner == 2){
     message = "Player 2 won"+message2;
   }
   document.getElementById("winner-text").textContent = message;
@@ -408,7 +410,7 @@ socket.on('timer', (timerTime) => {
 });
 
 socket.on('finished', (winnerId) => {
-  ({winner} = winnerId);
+  ({winner, score} = winnerId);
   console.log("Game finished, player ",winner," won");
   finished = true;
 });

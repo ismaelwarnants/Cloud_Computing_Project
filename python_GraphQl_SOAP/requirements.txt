@@ -4,3 +4,4 @@ graphene
 flask-cors
 requests
 xmltodict
+flask-socketio

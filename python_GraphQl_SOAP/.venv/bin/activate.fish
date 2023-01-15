@@ -30,7 +30,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/ismael/Documents/Cloud_Computing_Project/python_GraphQl/.venv"
+set -gx VIRTUAL_ENV "/home/ismael/Documents/Cloud_Computing_Project/python_GraphQl_SOAP/.venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

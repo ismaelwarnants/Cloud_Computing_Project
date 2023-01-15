@@ -1,5 +1,4 @@
 import requests
-from lxml import etree
 import xmltodict
 
 # SOAP request URL
