@@ -8,6 +8,18 @@ import soap_api, json
 app = Flask(__name__)
 socketio = SocketIO(app)
 
+# REST
+@app.route('/pong/scoreboard', methods=['GET'])
+def scoreboard():
+    scores = [
+        {'player1': {'name': 'player1', 'score': 5}, 'player2': {'name': 'player2', 'score': 8}},
+        {'player1': {'name': 'player3', 'score': 3}, 'player2': {'name': 'player4', 'score': 7}},
+        {'player1': {'name': 'player5', 'score': 6}, 'player2': {'name': 'player6', 'score': 9}}
+    ]
+
+    return jsonify({'scores': scores})
+
+# Websocket
 @socketio.on('finished', namespace='/pong')
 def handle_message(message):
     winner = message['winnerId']
@@ -16,10 +28,11 @@ def handle_message(message):
     score1 = message['score1']
     score2 = message['score2']
     print('Winner is Player ' + str(winner))
+    #Send to laravel
     
-    #{'winnerId ': 1, 'UUID1': 'f0325d70-ae15-4f45-b66e-60f3a2dde788', 'UUID2': 'e75c8b8b-55f5-416a-be63-5c183a13697f', 'score1': 5, 'score2': 0}
     #emit('pong', {'data': 'Echo: ' + message}, namespace='/pong')
 
+# GraphQl
 class Query(ObjectType):
     login = String(username=String(required=True), password=String(required=True))
 

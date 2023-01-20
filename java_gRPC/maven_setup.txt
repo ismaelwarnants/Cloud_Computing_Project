@@ -1,0 +1,10 @@
+mvn archetype:generate -DgroupId=com.example -DartifactId=scoreservice -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+Voeg de dependencies to in de pom.xml
+
+Ga in de map van het project, kopieer naar daar de proto file en run: mvn compile
+
+Als het faalt voeg je de vereiste plugin to voor java versie omhoog te halen en voer je erna dit commando uit: mvn clean install
+
+Run:
+mvn exec:java -Dexec.mainClass="com.example.App"
