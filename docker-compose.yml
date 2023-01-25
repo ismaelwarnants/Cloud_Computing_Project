@@ -9,3 +9,6 @@ services:
   cs:
     build: CS_SOAP/
     network_mode: "host"
+  laravel:
+    build: laravel_REST/pong_dashboard/
+    network_mode: "host"

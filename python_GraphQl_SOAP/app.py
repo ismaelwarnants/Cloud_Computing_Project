@@ -8,16 +8,28 @@ import soap_api, json
 app = Flask(__name__)
 socketio = SocketIO(app)
 
+scores = []
+
+users = {}
+
 # REST
 @app.route('/pong/scoreboard', methods=['GET'])
 def scoreboard():
-    scores = [
-        {'player1': {'name': 'player1', 'score': 5}, 'player2': {'name': 'player2', 'score': 8}},
-        {'player1': {'name': 'player3', 'score': 3}, 'player2': {'name': 'player4', 'score': 7}},
-        {'player1': {'name': 'player5', 'score': 6}, 'player2': {'name': 'player6', 'score': 9}}
-    ]
-
     return jsonify({'scores': scores})
+
+
+def add_score(UUID1,score1,UUID2,score2):
+    scores.append({'player1': {'name': find_user(UUID1), 'score': score1}, 'player2': {'name': find_user(UUID2), 'score': score2}})
+    
+def store_user(username, uuid_i):
+    uuid = uuid_i
+    users[uuid] = username
+    return uuid
+
+def find_user(uuid):
+    if uuid in users:
+        return users[uuid]
+    return None
 
 # Websocket
 @socketio.on('finished', namespace='/pong')
@@ -28,6 +40,7 @@ def handle_message(message):
     score1 = message['score1']
     score2 = message['score2']
     print('Winner is Player ' + str(winner))
+    add_score(UUID1,score1,UUID2,score2)
     #Send to laravel
     
     #emit('pong', {'data': 'Echo: ' + message}, namespace='/pong')
@@ -42,7 +55,10 @@ class Query(ObjectType):
     createuser = String(username=String(required=True), password=String(required=True))
 
     def resolve_createuser(self, info, username, password):
-        return soap_api.create_user(username,password)
+        uuid = soap_api.create_user(username,password)
+        if(len(uuid) == 36):
+            store_user(username,uuid)
+        return uuid
 
 schema = Schema(query=Query)
 

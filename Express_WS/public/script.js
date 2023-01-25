@@ -2,6 +2,10 @@
 const canvas = document.getElementById('myCanvas');
 const context = canvas.getContext('2d');
 const socket = io('/pong');
+
+//let url = 'http://137.117.131.224:5000/graphql';
+let url = 'http://127.0.0.1:5000/graphql'
+
 let isPlayer2 = false;
 let paddleIndex = 0;
 
@@ -285,14 +289,14 @@ function checkCredentials() {
 
   console.log(JSON.stringify({ query, variables }));
 
-  fetch('http://127.0.0.1:5000/graphql', {
+  fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query, variables })
   })
       .then(res => res.json())
       .then(data => {
-          if (data.data.login !== "1") {
+          if (data.data.login === "0") {
               console.log("login failed");
               alert("Invalid credentials. Please try again.");
             } else {
@@ -318,14 +322,14 @@ function createUser() {
 
   console.log(JSON.stringify({ query, variables }));
 
-  fetch('http://127.0.0.1:5000/graphql', {
+  fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query, variables })
   })
       .then(res => res.json())
       .then(data => {
-          if (data.data.login !== "1") {
+          if (data.data.login === "0") {
               console.log("Create user failed");
               alert("Create user failed");
             } else {
