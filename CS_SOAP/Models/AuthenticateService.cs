@@ -12,9 +12,10 @@ namespace Models {
             var user = _userStore.GetUser(userName);
             if (user == null || user.password != password)
             {
+                Console.Write("Login failed\n");
                 return null;
             }
-
+            Console.Write("Login successful\n");
             return user.UUID;
         }
 
@@ -29,8 +30,10 @@ namespace Models {
 
             if (_userStore.AddUser(user))
             {
+                Console.Write("User created\n");
                 return user.UUID;
             }
+            Console.Write("User creation failed\n");
             return null;
         }
 

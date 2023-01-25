@@ -47,7 +47,7 @@ class Query(ObjectType):
 schema = Schema(query=Query)
 
 app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
-CORS(app, resources={r"/*": {"origins": "http://localhost:10000", "methods": "GET,POST"}})
+CORS(app, resources={r"/*": {"origins": "*", "methods": "GET,POST,PUT"}})
 
 if __name__ == '__main__':
     #app.run()

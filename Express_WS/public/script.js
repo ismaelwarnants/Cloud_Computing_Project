@@ -292,7 +292,7 @@ function checkCredentials() {
   })
       .then(res => res.json())
       .then(data => {
-          if (data.data.login === "0") {
+          if (data.data.login !== "1") {
               console.log("login failed");
               alert("Invalid credentials. Please try again.");
             } else {
@@ -325,7 +325,7 @@ function createUser() {
   })
       .then(res => res.json())
       .then(data => {
-          if (data.data.login === "0") {
+          if (data.data.login !== "1") {
               console.log("Create user failed");
               alert("Create user failed");
             } else {

@@ -1,0 +1,10 @@
+services:
+  python_flask:
+    build: python_GraphQl_SOAP/
+    network_mode: "host"
+  node_express:
+    build: Express_WS/
+    network_mode: "host"
+  cs:
+    build: CS_SOAP/
+    network_mode: "host"
