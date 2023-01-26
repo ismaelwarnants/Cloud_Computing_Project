@@ -11,5 +11,5 @@ RUN composer install
 RUN chmod -R 777 storage
 RUN chmod -R 777 bootstrap/cache
 
-EXPOSE 8001
-CMD php artisan serve --host=0.0.0.0 --port=8001
+EXPOSE 8000
+CMD php artisan serve --host=0.0.0.0 --port=8000
