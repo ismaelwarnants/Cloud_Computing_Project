@@ -8,8 +8,7 @@ WORKDIR /laravel
 COPY . /laravel/
 
 RUN composer install
-RUN chmod -R 777 storage
-RUN chmod -R 777 bootstrap/cache
+RUN chmod --recursive 777 /laravel/
 
-EXPOSE 80
-CMD php artisan serve --host=0.0.0.0 --port=80
+EXPOSE 8001
+CMD php artisan serve --host=0.0.0.0 --port=8001
