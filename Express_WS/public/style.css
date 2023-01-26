@@ -76,3 +76,29 @@ button:focus {
     height: 700px;
   }
 }
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  padding: 20px;
+  border: 1px solid black;
+  display: block;
+}
+.container {
+  display: center;
+  flex-direction: column;
+  text-align:center;
+}
+.h1 {
+  text-align:center;
+}
+.redirect-button {
+position: absolute;
+top: 0;
+left: 0;
+text-align: center;
+cursor: pointer;
+}

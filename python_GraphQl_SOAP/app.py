@@ -41,8 +41,7 @@ def handle_message(message):
     score2 = message['score2']
     print('Winner is Player ' + str(winner))
     add_score(UUID1,score1,UUID2,score2)
-    #Send to laravel
-    
+    # Eventueel iets terug sturen naar Express:
     #emit('pong', {'data': 'Echo: ' + message}, namespace='/pong')
 
 # GraphQl

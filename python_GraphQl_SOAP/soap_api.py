@@ -5,7 +5,6 @@ import xmltodict
 url = "http://localhost:5231/authenticate.asmx?wsdl"
 
 def login(userName, password):
-    # structured XML
     payload = """<?xml version=\"1.0\" encoding=\"utf-8\"?>
                 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
                     <Body>
@@ -15,14 +14,13 @@ def login(userName, password):
                         </Login>
                     </Body>
                 </Envelope>"""
-    # headers
+    
     headers = {
         'Content-Type': 'text/xml; charset=utf-8'
     }
-    # POST request
+    
     response = requests.request("POST", url, headers=headers, data=payload)
 
-    # prints the response
     '''print(response.text)
     print(response)'''
     
@@ -36,7 +34,6 @@ def login(userName, password):
         return "0"
         
 def create_user(userName, password):
-    # structured XML
     payload = """<?xml version=\"1.0\" encoding=\"utf-8\"?>
                 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
                     <Body>
@@ -46,14 +43,13 @@ def create_user(userName, password):
                         </CreateUser>
                     </Body>
                 </Envelope>"""
-    # headers
+
     headers = {
         'Content-Type': 'text/xml; charset=utf-8'
     }
-    # POST request
+
     response = requests.request("POST", url, headers=headers, data=payload)
 
-    # prints the response
     '''print(response.text)
     print(response)'''
     

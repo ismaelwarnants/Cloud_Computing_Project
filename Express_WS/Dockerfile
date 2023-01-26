@@ -9,6 +9,6 @@ COPY . /node/
 EXPOSE 51000
 
 RUN npm install -g npm@9.3.1
-RUN npm install http socket.io cors ws socket.io-client path request
+RUN npm install http socket.io cors ws socket.io-client path
 
 CMD [ "node", "server.js" ]

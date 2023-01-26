@@ -261,20 +261,6 @@ function startGame() {
 }
 
 // On Load
-
-/*function checkCredentials() {
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-  if (username === "admin" && password === "password") {
-    alert("Login successful!");
-    document.getElementById("popup").style.display = "none";
-    document.getElementById("popup_btn").style.display = "none";
-    loadGame();
-  } else {
-    alert("Invalid credentials. Please try again.");
-  }
-}*/
-
 function checkCredentials() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
@@ -335,9 +321,6 @@ function createUser() {
             } else {
               console.log("Create user successful: ",data.data.login);
               alert("User created, you can now login.");
-              //document.getElementById("popup").style.display = "none";
-              //document.getElementById("popup_btn").style.display = "none";
-              //loadGame();
           }
       });
 }

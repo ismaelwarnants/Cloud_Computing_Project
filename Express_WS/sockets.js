@@ -7,7 +7,6 @@ let UUID2 = "";
 
 function listen(io) {
   const pongNamespace = io.of('/pong');
-  //const flaskNamespace = io.of('http://127.0.0.1:5000/socket.io/?EIO=3&transport=websocket&ns=pong');
   pongNamespace.on('connection', (socket) => {
     let room;
 
@@ -47,9 +46,7 @@ function listen(io) {
     socket.on('finished', (winnerId) => {
       ({winner, score} = winnerId);
       socket.to(room).emit('finished', winnerId);
-      /*ws.on('open', function open() {
-          ws.send(JSON.stringify({name:'finished',args:[winnerId]}));
-      });*/
+      // Send results to Flask
       flaskSocket.emit('finished', {"winnerId": winner, "UUID1":UUID1, "UUID2": UUID2, "score1": score[1], "score2": score[0]});
     });
 

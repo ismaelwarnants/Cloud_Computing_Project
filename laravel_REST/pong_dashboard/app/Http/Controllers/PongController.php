@@ -18,15 +18,13 @@ class PongController extends Controller {
                 throw new \Exception("Invalid data format. Expected JSON data");
             }
         } catch (\GuzzleHttp\Exception\ClientException $e) {
-            // handle exception when the request to the endpoint failed, such as when the server is down or the endpoint is not reachable.
+            // Catch the client exception
         } catch (\Exception $e) {
-            // handle exception when the response from the endpoint is not in the expected format.
             return view('pong.dashboard', [
                 'error' => $e->getMessage()
             ]);
         }
 
-        // Pass scores to view
         return view('pong.dashboard', [
             'scores' => $scores,
         ]);
