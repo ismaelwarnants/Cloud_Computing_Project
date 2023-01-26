@@ -1,4 +1,4 @@
-FROM php:8.1-rc-apache
+FROM php:8.1-rc-buster
 
 USER www-data
 
