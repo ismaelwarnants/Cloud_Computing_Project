@@ -4,7 +4,7 @@ const io = require("socket.io");
 const cors = require('cors');
 
 
-const port = process.env.PORT || 51000;
+const port = process.env.PORT || 80;
 
 const apiServer = require("./api");
 const httpServer = http.createServer(apiServer);

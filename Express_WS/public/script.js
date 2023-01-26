@@ -3,8 +3,8 @@ const canvas = document.getElementById('myCanvas');
 const context = canvas.getContext('2d');
 const socket = io('/pong');
 
-//let url = 'http://137.117.131.224:5000/graphql';
-let url = 'http://127.0.0.1:5000/graphql'
+let url = 'http://137.117.131.224:5000/graphql';
+//let url = 'http://127.0.0.1:5000/graphql'
 
 let isPlayer2 = false;
 let paddleIndex = 0;
