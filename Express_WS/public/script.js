@@ -37,7 +37,7 @@ let speedX = 0;
 let score = [0, 0];
 
 // Timer
-let timer = 30;
+let timer = 60;
 let time = getTimeInSeconds();
 
 // Winner
