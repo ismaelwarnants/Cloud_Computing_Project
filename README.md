@@ -21,5 +21,12 @@ Laravel vraagt via REST de scores die opgeslagen zijn in Flask op om daarna in e
 Deze manier van werken is miniem gehouden om het gefocust te houden op de interactie tussen de services. 
 Daarom dat het concept van een pong spel gekozen is om dit na te bouwen.
 
+## Uitvoeren
 
 Het project kan ook in Docker gedraaid worden en draait op dit moment in Azure (enkele kleine wijzigingen zijn daarvoor gemaakt): http://137.117.131.224/
+
+
+Na deze repo te clonen kan de docker-compose stack gedraaid worden met volgend commando:
+```
+sudo docker-compose -p pong_cloud up --build
+```
