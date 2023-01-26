@@ -16,7 +16,7 @@ function fetchPage(url, callback) {
 }
 
 api.get('/scoreboard', (req, res) => {
-    fetchPage('https://www.google.com', (pageContent) => {
+    fetchPage('http://localhost:8001', (pageContent) => {
         res.send(pageContent)
     })
 })
