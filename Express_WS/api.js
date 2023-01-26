@@ -21,10 +21,10 @@ api.get('/scoreboard', (req, res) => {
     })
 })
 
-api.use(express.static(path.join(__dirname, 'public')));
+/*api.use(express.static(path.join(__dirname, 'public')));
 
 api.use('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
-});
+});*/
 
 module.exports = api;
