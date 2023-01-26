@@ -1,6 +1,6 @@
 FROM php:8.1-rc-apache-buster
 
-RUN apt-get update -y && apt-get install -y libmcrypt-dev git unzip php-xml php-dom php-curl
+RUN apt-get update -y && apt-get install -y libmcrypt-dev git unzip
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
